@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper">
+  <div class="page-wrapper" id="top">
     <Nav />
     <div>
       <div class="inner">

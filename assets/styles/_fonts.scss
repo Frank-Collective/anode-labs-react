@@ -1,0 +1,26 @@
+/**
+ * Söhne Breit
+ */
+@font-face {
+  font-family: "Test Söhne Breit";
+  src: url("/fonts/testso-hnebreit-kra-ftig.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/**
+ * Proxima Nova
+ */
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/fonts/proximanova-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("/fonts/proximanova-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}

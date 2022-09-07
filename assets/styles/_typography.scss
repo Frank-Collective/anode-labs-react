@@ -1,0 +1,50 @@
+body {
+  @include body-copy;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Test Söhne Breit";
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-weight: 600;
+  font-size: 20px;
+  @include clamp("font-size", 14px, 1.05vw, 20px);
+  line-height: 120%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  background-color: $light_green;
+  padding: 1em 1.65em;
+  transition: 0.15s background-color, 0.15s color;
+
+  &:hover {
+    background-color: $yellow;
+    color: $dark_green;
+  }
+}
+
+.link {
+  color: $white;
+  font-weight: 600;
+  font-size: 20px;
+  @include clamp("font-size", 14px, 1.05vw, 20px);
+  line-height: 120%;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 1em 1.65em;
+  transition: 0.15s background-color, 0.15s color;
+
+  &:hover {
+    color: $light_green;
+  }
+}

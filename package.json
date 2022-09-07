@@ -8,6 +8,21 @@
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@nuxt/babel-preset-app": "^2.15.8",
+    "@nuxtjs/style-resources": "^1.2.1",
+    "cookie-universal-nuxt": "^2.1.5",
+    "core-js": "^3.15.1",
+    "dayjs": "^1.10.8",
+    "graphql": "^15.8.0",
+    "gsap": "^3.9.1",
+    "nuxt": "^2.15.7",
+    "nuxt-graphql-request": "^4.3.0",
+    "sass": "^1.49.0",
+    "vue-flickity": "^1.2.1",
+    "vue-scrollto": "^2.20.0"
+  },
+  "devDependencies": {
+    "sass-loader": "^10.2.1"
+  }
 }

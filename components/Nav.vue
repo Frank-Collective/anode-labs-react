@@ -1,12 +1,14 @@
 <template>
   <nav>
-    <div class="logo">
-      <a v-if="currentRoute == 'index'" v-scroll-to="'#top'">
-        <!-- <img :src="" alt="" /> -->
-      </a>
-      <nuxt-link v-if="currentRoute != 'index'" to="/">
-        <!-- <img :src="" alt="" /> -->
-      </nuxt-link>
+    <div class="inner">
+      <div class="logo">
+        <a v-if="currentRoute == 'index'" v-scroll-to="'#top'">
+          <img src="/images/logo.svg" alt="" />
+        </a>
+        <nuxt-link v-if="currentRoute != 'index'" to="/">
+          <img src="/images/logo.svg" alt="" />
+        </nuxt-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -28,3 +30,32 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+nav {
+  position: relative;
+  z-index: 10;
+  height: 0px;
+
+  .inner {
+    @include gutter(padding-left);
+    @include gutter(padding-right);
+    @include clamp("padding-top", 26px, 5.21vw, 100px);
+
+    .logo {
+      a {
+        display: block;
+        width: 216px;
+        @include clamp("width", 103px, 11.25vw, 216px);
+        cursor: pointer;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}
+</style>
