@@ -18,3 +18,12 @@ html {
 body {
   background-color: $dark_green;
 }
+
+model-viewer {
+  width: 800px;
+  height: 600px;
+}
+
+.poster .progress-bar {
+  display: none;
+}

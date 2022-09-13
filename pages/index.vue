@@ -15,7 +15,45 @@
           </div>
         </div>
         <div class="image">
-          <img src="/images/section-1-image.png" alt="" />
+          <model-viewer
+            id="hero3d"
+            camera-controls
+            auto-rotate
+            disable-zoom
+            interaction-prompt="none"
+            src="/Scene.gltf"
+            alt="Earth at night"
+          >
+            <div class="poster" slot="poster"></div>
+            <div class="progress-bar" slot="progress-bar"></div>
+          </model-viewer>
+          <div class="svg">
+            <svg
+              width="852"
+              height="364"
+              viewBox="0 0 852 364"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30.0018 364H47.2028C30.4018 337.739 17.201 296.508 17.201 250.813C17.201 205.118 30.4018 161.261 47.2028 135H30.2018C12.4007 160.474 0 203.017 0 250.813C0 298.872 12.2007 338.789 30.0018 364Z"
+                fill="#F8FF31"
+              />
+              <path
+                d="M768.597 364H785.798C803.599 338.789 816 298.872 816 250.813C816 203.017 803.399 160.474 785.598 135H768.597C785.398 161.261 798.799 205.118 798.799 250.813C798.799 296.508 785.398 337.739 768.597 364Z"
+                fill="#F8FF31"
+              />
+              <path
+                d="M800.53 50.9495H781.916L791.668 20.9293C793.573 15.0663 796.999 10.0107 801.487 6.44115C805.975 2.87159 811.31 0.958925 816.775 0.959961L800.53 50.9495Z"
+                fill="#F8FF31"
+              />
+              <path
+                d="M833.026 50.9492H851.633L841.862 20.9291C839.959 15.0671 836.536 10.0119 832.052 6.44228C827.567 2.87265 822.236 0.959503 816.774 0.959717L833.026 50.9492Z"
+                fill="#F8FF31"
+              />
+            </svg>
+          </div>
+          <!-- <img src="/images/section-1-image.png" alt="" /> -->
         </div>
       </div>
       <div class="inner2">
@@ -171,6 +209,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.poster,
+.progress-bar {
+  display: none;
+}
+
 .section-1 {
   position: relative;
   padding-top: 19.8vw;
@@ -233,7 +276,24 @@ export default {
     .image {
       width: 55%;
       flex-shrink: 0;
-
+      position: relative;
+      #hero3d {
+        width: 80%;
+        min-height: 500px;
+        display: block;
+        margin-left: 10%;
+        position: relative;
+        z-index: 100;
+      }
+      .svg {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        width: 100%;
+        svg {
+          width: 100%;
+        }
+      }
       img {
         display: block;
         width: 100%;

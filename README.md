@@ -37,3 +37,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+
+"@google/model-viewer": "1.9.1",

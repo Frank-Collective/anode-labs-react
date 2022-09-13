@@ -19,6 +19,13 @@ export default {
       { name: "format-detection", content: "telephone=no" },
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    script: [
+      {
+        src: "https://cdn.jsdelivr.net/npm/@google/model-viewer@1.9.2/dist/model-viewer-umd.min.js",
+        async: true,
+        crossorigin: "anonymous",
+      },
+    ],
   },
 
   // // Global CSS: https://go.nuxtjs.dev/config-css
