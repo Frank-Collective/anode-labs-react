@@ -130,6 +130,7 @@ export default {
   }
 
   .inner {
+    padding: 3vw 0;
     .title {
       display: flex;
       align-items: center;

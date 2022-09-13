@@ -297,7 +297,7 @@ export default {
       }      
       .parens {
         position: absolute;
-        top: 25%;
+        top: 27%;
         left: 0;
         width: 100%;
         svg {
