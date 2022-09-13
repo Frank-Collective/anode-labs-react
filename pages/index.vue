@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="image">
-          <!-- <model-viewer
+           <model-viewer
             id="hero3d"
             camera-controls
             auto-rotate
@@ -26,31 +26,24 @@
           >
             <div class="poster" slot="poster"></div>
             <div class="progress-bar" slot="progress-bar"></div>
-          </model-viewer> -->
-          <div class="svg">
-            <svg
-              width="852"
-              height="364"
-              viewBox="0 0 852 364"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M30.0018 364H47.2028C30.4018 337.739 17.201 296.508 17.201 250.813C17.201 205.118 30.4018 161.261 47.2028 135H30.2018C12.4007 160.474 0 203.017 0 250.813C0 298.872 12.2007 338.789 30.0018 364Z"
-                fill="#F8FF31"
-              />
-              <path
-                d="M768.597 364H785.798C803.599 338.789 816 298.872 816 250.813C816 203.017 803.399 160.474 785.598 135H768.597C785.398 161.261 798.799 205.118 798.799 250.813C798.799 296.508 785.398 337.739 768.597 364Z"
-                fill="#F8FF31"
-              />
-              <path
-                d="M800.53 50.9495H781.916L791.668 20.9293C793.573 15.0663 796.999 10.0107 801.487 6.44115C805.975 2.87159 811.31 0.958925 816.775 0.959961L800.53 50.9495Z"
-                fill="#F8FF31"
-              />
-              <path
-                d="M833.026 50.9492H851.633L841.862 20.9291C839.959 15.0671 836.536 10.0119 832.052 6.44228C827.567 2.87265 822.236 0.959503 816.774 0.959717L833.026 50.9492Z"
-                fill="#F8FF31"
-              />
+          </model-viewer>
+          <div class="ornament">
+            <svg width="123" height="122" viewBox="0 0 123 122" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="61.4996" cy="7.89412" r="7.89412" fill="#06C290"/>
+            <circle cx="61.4996" cy="32.2943" r="7.89412" fill="#06C290"/>
+            <circle cx="8.39412" cy="61.0001" r="7.89412" fill="#06C290"/>
+            <ellipse cx="34.947" cy="61.0001" rx="7.17647" ry="7.89412" fill="#06C290"/>
+            <circle cx="61.4996" cy="61.0001" r="7.89412" fill="#F8FF31"/>
+            <ellipse cx="88.0524" cy="61.0001" rx="7.17647" ry="7.89412" fill="#F8FF31"/>
+            <circle cx="114.605" cy="61.0001" r="7.89412" fill="#F8FF31"/>
+            <ellipse cx="61.4996" cy="88.9882" rx="7.89412" ry="7.17647" fill="#F8FF31"/>
+            <circle cx="61.4996" cy="114.106" r="7.89412" fill="#F8FF31"/>
+            </svg>     
+          </div>
+          <div class="parens">
+            <svg width="816" height="229" viewBox="0 0 816 229" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30.0018 229H47.2028C30.4018 202.739 17.201 161.508 17.201 115.813C17.201 70.1181 30.4018 26.2615 47.2028 0H30.2018C12.4007 25.4736 0 68.0172 0 115.813C0 163.872 12.2007 203.789 30.0018 229Z" fill="#F8FF31"/>
+            <path d="M768.597 229H785.798C803.599 203.789 816 163.872 816 115.813C816 68.0172 803.399 25.4736 785.598 0H768.597C785.398 26.2615 798.799 70.1181 798.799 115.813C798.799 161.508 785.398 202.739 768.597 229Z" fill="#F8FF31"/>
             </svg>
           </div>
           <!-- <img src="/images/section-1-image.png" alt="" /> -->
@@ -293,9 +286,18 @@ export default {
         position: relative;
         z-index: 100;
       }
-      .svg {
+      .ornament {
         position: absolute;
-        top: 10%;
+        top: -5%;
+        right: -5%;
+        width: 20%;
+        svg {
+          width: 100%;
+        }
+      }      
+      .parens {
+        position: absolute;
+        top: 25%;
         left: 0;
         width: 100%;
         svg {

@@ -9,6 +9,13 @@
           <img src="/images/logo.svg" alt="" />
         </nuxt-link>
       </div>
+      <div class="nav-links">
+        <ul>
+          <li><a href="#">Our Values</a></li>
+          <li><a href="#">How It Works</a></li>
+          <li><a href="#">Join Us</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 </template>
@@ -41,7 +48,8 @@ nav {
     @include gutter(padding-left);
     @include gutter(padding-right);
     @include clamp("padding-top", 26px, 5.21vw, 100px);
-
+    display: flex;
+    justify-content: space-between;
     .logo {
       a {
         display: block;
@@ -53,6 +61,26 @@ nav {
           display: block;
           width: 100%;
           height: auto;
+        }
+      }
+    }
+    .nav-links {
+      ul {
+        display: flex;
+        li {
+          margin-left: 2em;
+          &:first-of-type {
+            margin-left: 0;
+          }
+        }
+      }
+      a {
+        text-decoration: none;
+        color: $white;
+        text-transform: uppercase;
+        font-family: "Test Söhne Breit";
+        &:hover {
+          color: $yellow;
         }
       }
     }
