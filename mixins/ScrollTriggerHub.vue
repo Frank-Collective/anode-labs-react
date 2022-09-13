@@ -27,9 +27,9 @@ export default {
       });
     }
 
-    setTimeout(() => {
-      this.scrollTriggerInit();
-    }, 1000);
+    this.scrollTriggerInit();
+
+    //setTimeout(() => {}, 1000);
   },
   methods: {
     scrollTriggerInit() {
@@ -45,14 +45,6 @@ export default {
           "[data-st-slide_up_enter]"
         );
         this.slide_up_enter_els.forEach(this.add_slide_up_enter_animation);
-
-        // Slide Up Enter Half - scrub
-        this.slide_up_enter_half_els = document.querySelectorAll(
-          "[data-st-slide_up_enter_half]"
-        );
-        this.slide_up_enter_half_els.forEach(
-          this.add_slide_up_enter_half_animation
-        );
 
         // Slide Down Enter - scrub
         this.slide_down_enter_els = document.querySelectorAll(
@@ -90,26 +82,15 @@ export default {
             trigger: el,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.1,
+            scrub: 0.5,
           },
         })
         .from(el, {
-          y: "7vw",
+          y: "3.5vw",
           ease: "none",
-        });
-    },
-    add_slide_up_enter_half_animation(el, index) {
-      const timeline = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: el,
-            start: "top bottom",
-            end: "center center",
-            scrub: 0.1,
-          },
         })
-        .from(el, {
-          y: "7vw",
+        .to(el, {
+          y: "-3.5vw",
           ease: "none",
         });
     },
@@ -120,11 +101,15 @@ export default {
             trigger: el,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.1,
+            scrub: 0.5,
           },
         })
         .from(el, {
-          y: "-7vw",
+          y: "-3.5vw",
+          ease: "none",
+        })
+        .to(el, {
+          y: "3.5vw",
           ease: "none",
         });
     },

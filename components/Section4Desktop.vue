@@ -71,9 +71,7 @@ export default {
   },
   methods: {
     display_image: function (index) {
-      if (index > this.current_image_index) {
-        this.current_image_index = index;
-      }
+      this.current_image_index = index;
     },
   },
 };
@@ -85,12 +83,23 @@ export default {
   display: flex;
   justify-content: space-between;
 
+  @include breakpoint(small) {
+    width: 100%;
+    @include gutter(padding-left);
+    @include gutter(padding-right);
+  }
+
   .copy {
     width: 56.52%;
     flex-shrink: 0;
     @include gutter(padding-left);
     padding-top: 10vw;
     padding-bottom: 10vw;
+
+    @include breakpoint(small) {
+      width: 100%;
+      padding: 0;
+    }
 
     h2 {
       font-weight: 400;
@@ -111,6 +120,10 @@ export default {
     height: 100vh;
     @include gutter(margin-right);
 
+    @include breakpoint(small) {
+      display: none;
+    }
+
     &:before {
       content: "";
       display: block;
@@ -125,20 +138,22 @@ export default {
     .dot {
       position: relative;
       flex-shrink: 0;
-      width: 47px;
-      height: 47px;
+      width: 2.5vw;
+      height: 2.5vw;
       border-radius: 100%;
       background-color: $dark_green;
-      transition: 0.5s background-color;
+      transition: 0.5s background-color, 0.5s width, 0.5s height;
       margin: 3vw 0;
 
       &:first-of-type {
-        width: 80px;
-        height: 80px;
+        width: 4.2vw;
+        height: 4.2vw;
       }
 
       &.expanded {
         background-color: $light_green;
+        width: 4.2vw;
+        height: 4.2vw;
       }
     }
 

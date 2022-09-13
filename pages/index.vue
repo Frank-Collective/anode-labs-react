@@ -2,11 +2,11 @@
   <div>
     <div class="section-1">
       <div class="bg-image">
-        <img class="background" src="/images/section-1-bg.jpg" alt="" />
-        <img src="/images/section-1-grid-bg.svg" alt="" />
+        <img class="background" src="/images/section-1-bg.jpg" alt=""  />
+        <img src="/images/section-1-grid-bg.svg" alt="" data-st-slide_down_enter />
       </div>
       <div class="inner">
-        <div class="copy">
+        <div class="copy" data-st-slide_up_enter>
           <h1>POWERED<br />by PEOPLE</h1>
           <p>Connect. Conserve. Earn. Sustain.</p>
           <div class="ctas">
@@ -56,7 +56,7 @@
           <!-- <img src="/images/section-1-image.png" alt="" /> -->
         </div>
       </div>
-      <div class="inner2">
+      <div class="inner2" data-st-slide_up_enter>
         <h2>Changing the World With</h2>
         <ul class="large">
           <li>
@@ -120,13 +120,13 @@
     </div>
     <div class="section-2">
       <div class="bg-image">
-        <img src="/images/section-2-grid-bg.svg" alt="" />
+        <img src="/images/section-2-grid-bg.svg" alt="" data-st-slide_down_enter />
       </div>
       <div class="inner">
         <div class="image">
           <img src="/images/section-2-image.jpg" alt="" />
         </div>
-        <div class="copy">
+        <div class="copy" data-st-slide_up_enter>
           <h3>Small Actions.<br /><span>Massive Impact.</span></h3>
           <p>
             Collective actions yield outsized results. With the React Network,
@@ -141,9 +141,9 @@
     <div class="section-3">
       <div class="bg-image">
         <img class="background" src="/images/section-3-bg.jpg" alt="" />
-        <img src="/images/section-3-grid-bg.svg" alt="" />
+        <img src="/images/section-3-grid-bg.svg" alt="" data-st-slide_down_enter />
       </div>
-      <div class="inner">
+      <div class="inner" data-st-slide_up_enter>
         <h2>Future Focused</h2>
         <ul>
           <li>
@@ -167,7 +167,7 @@
         </ul>
       </div>
       <div class="inner2">
-        <div class="copy">
+        <div class="copy" data-st-slide_up_enter>
           <h3>
             <span>Fixing the Planet</span><br />
             is Good Business.
@@ -192,7 +192,7 @@
             </ul>
           </p>
         </div>
-        <div class="image">
+        <div class="image" data-st-slide_up_enter>
           <img src="/images/section-3-image.jpg" alt="" />
         </div>
       </div>
@@ -204,8 +204,10 @@
 </template>
 
 <script>
+import scrollTriggerHub from "~/mixins/ScrollTriggerHub";
 
 export default {
+  mixins: [scrollTriggerHub],
   head() {
     return {
       title: "Home",
@@ -398,9 +400,9 @@ export default {
   position: relative;
   z-index: 1;
   background-color: $dark_green;
-
   display: flex;
   align-items: center;
+  overflow: hidden;
 
   .bg-image {
     position: relative;
@@ -582,7 +584,5 @@ export default {
   position: relative;
   background-color: $yellow;
   color: $slate;
-
-  
 }
 </style>

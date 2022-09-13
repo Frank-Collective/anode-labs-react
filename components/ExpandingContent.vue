@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       scrolltrigger_initiated: false,
-      expanded: false,
+      expanded: true,
     };
   },
   mounted() {
@@ -53,13 +53,26 @@ export default {
         scrollTrigger: {
           trigger: el,
           start: "top center",
+          end: "bottom center",
           onEnter: () => {
+            // console.log("onEnter");
             this.expanded = true;
             this.data.callback(this.data.index);
 
-            setTimeout(() => {
-              ScrollTrigger.refresh();
-            }, 500);
+            // setTimeout(() => {
+            //   ScrollTrigger.refresh();
+            // }, 500);
+          },
+          onEnterBack: () => {
+            console.log("onEnterBack");
+            this.expanded = true;
+            this.data.callback(this.data.index);
+          },
+          onLeave: () => {
+            // console.log("onLeave");
+          },
+          onLeaveBack: () => {
+            // console.log("onLeaveBack");
           },
         },
       });
