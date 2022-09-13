@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="image">
-          <!-- <model-viewer
+           <model-viewer
             id="hero3d"
             camera-controls
             auto-rotate
@@ -26,7 +26,7 @@
           >
             <div class="poster" slot="poster"></div>
             <div class="progress-bar" slot="progress-bar"></div>
-          </model-viewer> -->
+          </model-viewer>
           <div class="svg">
             <svg
               width="852"
