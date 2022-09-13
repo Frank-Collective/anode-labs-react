@@ -15,7 +15,7 @@
           </div>
         </div>
         <div class="image">
-          <model-viewer
+          <!-- <model-viewer
             id="hero3d"
             camera-controls
             auto-rotate
@@ -26,7 +26,7 @@
           >
             <div class="poster" slot="poster"></div>
             <div class="progress-bar" slot="progress-bar"></div>
-          </model-viewer>
+          </model-viewer> -->
           <div class="svg">
             <svg
               width="852"
@@ -183,22 +183,28 @@
             community, meaning value is returned to you and not middlemen. Your
             smart devices, your network.
           </p>
-          <ul>
-            <li>
-              React’s digital currency is clean. Minting React tokens
-              accelerates our sustainable energy future.
-            </li>
-          </ul>
+          <p>
+            <ul>
+              <li>
+                React’s digital currency is clean. Minting React tokens
+                accelerates our sustainable energy future.
+              </li>
+            </ul>
+          </p>
         </div>
         <div class="image">
           <img src="/images/section-3-image.jpg" alt="" />
         </div>
       </div>
     </div>
+    <div class="section-4">
+      <Section4Desktop />
+    </div>
   </div>
 </template>
 
 <script>
+
 export default {
   head() {
     return {
@@ -322,6 +328,8 @@ export default {
     }
 
     ul {
+      list-style: none;
+      padding: 0;
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -486,8 +494,8 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 3vw;
-    padding-right: 4.5vw;
+    padding-left: 5vw;
+    padding-right: 6.5vw;
 
     h2 {
       font-weight: 400;
@@ -502,6 +510,8 @@ export default {
     ul {
       display: flex;
       justify-content: space-between;
+      list-style: none;
+      padding: 0;
 
       li {
         width: calc(33.3333% - 1.5vw);
@@ -532,11 +542,47 @@ export default {
   .inner2 {
     position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 3vw;
-    padding-right: 4.5vw;
-    padding-top: 31vw;
+    justify-content: space-between;
+    padding-top: 26vw;
+
+    .copy {
+      width: 40%;
+      flex-shrink: 0;
+      padding: 0 0;
+
+      h3 {
+        font-weight: 400;
+        @include clamp("font-size", 34px, 3.13vw, 60px);
+        line-height: 120%;
+        letter-spacing: 0.04em;
+        text-transform: capitalize;
+        margin-bottom: 1em;
+
+        span {
+          color: $yellow;
+        }
+      }
+    }
+
+    .image {
+      width: 48%;
+      flex-shrink: 0;
+      padding: 0 0 0 1.3vw;
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+    }
   }
+}
+
+.section-4 {
+  position: relative;
+  background-color: $yellow;
+  color: $slate;
+
+  
 }
 </style>

@@ -11,6 +11,20 @@ h6 {
   font-family: "Test Söhne Breit";
 }
 
+p {
+  margin-bottom: 1.5em;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 1em;
+  }
+}
+
 .button {
   display: flex;
   align-items: center;
