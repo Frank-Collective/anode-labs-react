@@ -4,6 +4,8 @@
       <h2>Meet The <br />React Network</h2>
       <ExpandingContent
         :data="{
+          callback: display_image,
+          index: 0,
           image: { mediaItemUrl: '/images/icon-bulb.svg' },
           title: 'The Network for<br>Energy Flexibility',
           content:
@@ -12,6 +14,8 @@
       />
       <ExpandingContent
         :data="{
+          callback: display_image,
+          index: 1,
           image: { mediaItemUrl: '/images/icon-0101.svg' },
           title: 'Earn React Tokens<br>For Contributing',
           content:
@@ -20,6 +24,8 @@
       />
       <ExpandingContent
         :data="{
+          callback: display_image,
+          index: 2,
           image: { mediaItemUrl: '/images/icon-people2.svg' },
           title: 'Collective<br>Ownership',
           content:
@@ -28,16 +34,28 @@
       />
     </div>
     <div class="images">
-      <div class="dot"></div>
-      <div class="image">
+      <div
+        class="dot"
+        v-bind:class="{ expanded: current_image_index == 0 }"
+      ></div>
+      <div class="image" v-bind:class="{ expanded: current_image_index == 0 }">
         <img src="/images/section4-image-0.jpg" alt="" />
       </div>
-      <div class="dot"></div>
-      <div class="image">
+      <div
+        class="dot"
+        v-bind:class="{ expanded: current_image_index == 1 }"
+      ></div>
+      <div class="image" v-bind:class="{ expanded: current_image_index == 1 }">
         <img src="/images/section4-image-1.jpg" alt="" />
       </div>
-      <div class="dot"></div>
-      <div class="image">
+      <div
+        class="dot"
+        v-bind:class="{ expanded: current_image_index == 2 }"
+      ></div>
+      <div
+        class="image last"
+        v-bind:class="{ expanded: current_image_index == 2 }"
+      >
         <img src="/images/section4-image-2.jpg" alt="" />
       </div>
     </div>
@@ -48,8 +66,15 @@
 export default {
   data() {
     return {
-      current_image_index: 0,
+      current_image_index: -1,
     };
+  },
+  methods: {
+    display_image: function (index) {
+      if (index > this.current_image_index) {
+        this.current_image_index = index;
+      }
+    },
   },
 };
 </script>
@@ -58,6 +83,7 @@ export default {
 .inner {
   position: relative;
   display: flex;
+  justify-content: space-between;
 
   .copy {
     width: 56.52%;
@@ -82,7 +108,6 @@ export default {
     justify-content: center;
     position: sticky;
     top: 0;
-    width: 100%;
     height: 100vh;
     @include gutter(margin-right);
 
@@ -98,26 +123,47 @@ export default {
     }
 
     .dot {
+      position: relative;
+      flex-shrink: 0;
       width: 47px;
       height: 47px;
       border-radius: 100%;
       background-color: $dark_green;
+      transition: 0.5s background-color;
+      margin: 3vw 0;
 
       &:first-of-type {
         width: 80px;
         height: 80px;
       }
+
+      &.expanded {
+        background-color: $light_green;
+      }
     }
 
     .image {
+      position: relative;
       width: 31.2vw;
-      height: 20px;
+      height: 0px;
       overflow: hidden;
+      z-index: 1;
+      transition: 0.5s height;
+
+      &.expanded {
+        height: 29.2vw;
+      }
+
+      &.last {
+        margin-bottom: 3vw;
+      }
 
       img {
+        position: absolute;
         display: block;
         width: 100%;
-        height: auto;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }

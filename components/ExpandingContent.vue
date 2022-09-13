@@ -49,13 +49,13 @@ export default {
     },
     add_expanding_content_trigger() {
       let el = this.$refs.ec;
-      console.log(el);
       const timeline = gsap.timeline({
         scrollTrigger: {
           trigger: el,
           start: "top center",
           onEnter: () => {
             this.expanded = true;
+            this.data.callback(this.data.index);
 
             setTimeout(() => {
               ScrollTrigger.refresh();
