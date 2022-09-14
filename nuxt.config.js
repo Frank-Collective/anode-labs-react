@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "",
+    title: "React Network",
     htmlAttrs: {
       lang: "en",
     },
@@ -14,11 +14,17 @@ export default {
       {
         hid: "description",
         name: "description",
-        content: process.env.SITE_NAME,
+        content: "POWERED BY PEOPLE. Connect. Conserve. Earn. Sustain.",
       },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      {
+        rel: "icon",
+        type: "image/x-icon",
+        href: "/images/logo-footer.svg",
+      },
+    ],
     script: [
       {
         src: "https://cdn.jsdelivr.net/npm/@google/model-viewer@1.9.2/dist/model-viewer-umd.min.js",
