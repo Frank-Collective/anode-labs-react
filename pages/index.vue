@@ -1,23 +1,44 @@
 <template>
-  <div>
+  <div id="top" v-if="page">
     <div class="section-1">
       <div class="bg-image">
-        <img class="background desktop" src="/images/section-1-bg.jpg" alt=""  />
-        <img class="background mobile" src="/images/section-1-bg-mobile.png" alt=""  />
-        <img class="grid desktop" src="/images/section-1-grid-bg.svg" alt="" data-st-slide_down_enter />
-        <img class="grid mobile" src="/images/section-1-grid-bg-mobile.svg" alt="" />
+        <img class="background desktop" src="/images/section-1-bg.jpg" alt="" />
+        <img
+          class="background mobile"
+          src="/images/section-1-bg-mobile.png"
+          alt=""
+        />
+        <img
+          class="grid desktop"
+          src="/images/section-1-grid-bg.svg"
+          alt=""
+          data-st-slide_down_enter
+        />
+        <img
+          class="grid mobile"
+          src="/images/section-1-grid-bg-mobile.svg"
+          alt=""
+        />
       </div>
-      <div class="inner">
+      <div class="inner" :id="page.hero.sectionId">
         <div class="copy" data-st-slide_up_enter>
-          <h1>POWERED<br />by PEOPLE</h1>
-          <p>Connect. Conserve. Earn. Sustain.</p>
+          <h1 v-if="page.hero.title" v-html="page.hero.title"></h1>
+          <div v-if="page.hero.copy" v-html="page.hero.copy"></div>
           <div class="ctas">
-            <a href="#" class="button">Join the waitlist</a>
-            <a href="#" class="link">Join the discord</a>
+            <Link
+              v-if="page.hero.link1"
+              :classes="'button'"
+              :link="page.hero.link1"
+            />
+            <Link
+              v-if="page.hero.link2"
+              :classes="'link'"
+              :link="page.hero.link2"
+            />
           </div>
         </div>
         <div class="image">
-           <model-viewer
+          <model-viewer
             id="hero3d"
             camera-controls
             auto-rotate
@@ -30,183 +51,285 @@
             <div class="progress-bar" slot="progress-bar"></div>
           </model-viewer>
           <div class="ornament">
-            <svg width="123" height="122" viewBox="0 0 123 122" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="61.4996" cy="7.89412" r="7.89412" fill="#06C290"/>
-            <circle cx="61.4996" cy="32.2943" r="7.89412" fill="#06C290"/>
-            <circle cx="8.39412" cy="61.0001" r="7.89412" fill="#06C290"/>
-            <ellipse cx="34.947" cy="61.0001" rx="7.17647" ry="7.89412" fill="#06C290"/>
-            <circle cx="61.4996" cy="61.0001" r="7.89412" fill="#F8FF31"/>
-            <ellipse cx="88.0524" cy="61.0001" rx="7.17647" ry="7.89412" fill="#F8FF31"/>
-            <circle cx="114.605" cy="61.0001" r="7.89412" fill="#F8FF31"/>
-            <ellipse cx="61.4996" cy="88.9882" rx="7.89412" ry="7.17647" fill="#F8FF31"/>
-            <circle cx="61.4996" cy="114.106" r="7.89412" fill="#F8FF31"/>
-            </svg>     
+            <svg
+              width="123"
+              height="122"
+              viewBox="0 0 123 122"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="61.4996" cy="7.89412" r="7.89412" fill="#06C290" />
+              <circle cx="61.4996" cy="32.2943" r="7.89412" fill="#06C290" />
+              <circle cx="8.39412" cy="61.0001" r="7.89412" fill="#06C290" />
+              <ellipse
+                cx="34.947"
+                cy="61.0001"
+                rx="7.17647"
+                ry="7.89412"
+                fill="#06C290"
+              />
+              <circle cx="61.4996" cy="61.0001" r="7.89412" fill="#F8FF31" />
+              <ellipse
+                cx="88.0524"
+                cy="61.0001"
+                rx="7.17647"
+                ry="7.89412"
+                fill="#F8FF31"
+              />
+              <circle cx="114.605" cy="61.0001" r="7.89412" fill="#F8FF31" />
+              <ellipse
+                cx="61.4996"
+                cy="88.9882"
+                rx="7.89412"
+                ry="7.17647"
+                fill="#F8FF31"
+              />
+              <circle cx="61.4996" cy="114.106" r="7.89412" fill="#F8FF31" />
+            </svg>
           </div>
           <div class="parens">
-            <svg width="816" height="229" viewBox="0 0 816 229" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M30.0018 229H47.2028C30.4018 202.739 17.201 161.508 17.201 115.813C17.201 70.1181 30.4018 26.2615 47.2028 0H30.2018C12.4007 25.4736 0 68.0172 0 115.813C0 163.872 12.2007 203.789 30.0018 229Z" fill="#F8FF31"/>
-            <path d="M768.597 229H785.798C803.599 203.789 816 163.872 816 115.813C816 68.0172 803.399 25.4736 785.598 0H768.597C785.398 26.2615 798.799 70.1181 798.799 115.813C798.799 161.508 785.398 202.739 768.597 229Z" fill="#F8FF31"/>
+            <svg
+              width="816"
+              height="229"
+              viewBox="0 0 816 229"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M30.0018 229H47.2028C30.4018 202.739 17.201 161.508 17.201 115.813C17.201 70.1181 30.4018 26.2615 47.2028 0H30.2018C12.4007 25.4736 0 68.0172 0 115.813C0 163.872 12.2007 203.789 30.0018 229Z"
+                fill="#F8FF31"
+              />
+              <path
+                d="M768.597 229H785.798C803.599 203.789 816 163.872 816 115.813C816 68.0172 803.399 25.4736 785.598 0H768.597C785.398 26.2615 798.799 70.1181 798.799 115.813C798.799 161.508 785.398 202.739 768.597 229Z"
+                fill="#F8FF31"
+              />
             </svg>
           </div>
           <!-- <img src="/images/section-1-image.png" alt="" /> -->
         </div>
       </div>
-      <div class="inner2" data-st-slide_up_enter>
-        <h2>Changing the World With</h2>
+      <div :id="page.logoSoup.sectionId" class="inner2" data-st-slide_up_enter>
+        <h2 v-if="page.logoSoup.title" v-html="page.logoSoup.title"></h2>
         <ul class="large">
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-lerer-hippeau.png" alt="" />
+          <li
+            v-for="(logo, index) in page.logoSoup.logos.slice(0, 2)"
+            :key="index"
+          >
+            <a :href="logo.url" target="_blank">
+              <img v-if="logo.image" :src="logo.image.mediaItemUrl" alt="" />
               <img
                 class="hover"
-                src="/images/logo-lerer-hippeau-hover.png"
+                v-if="logo.imageActive"
+                :src="logo.imageActive.mediaItemUrl"
                 alt=""
               />
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-lattice.png" alt="" />
-              <img class="hover" src="/images/logo-lattice-hover.png" alt="" />
             </a>
           </li>
         </ul>
         <ul class="small">
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-dcg.png" alt="" />
-              <img class="hover" src="/images/logo-dcg-hover.png" alt="" />
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-coinshares.png" alt="" />
-              <img
-                class="hover"
-                src="/images/logo-coinshares-hover.png"
-                alt=""
-              />
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-vaynerfund.png" alt="" />
-              <img
-                class="hover"
-                src="/images/logo-vaynerfund-hover.png"
-                alt=""
-              />
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-allegory.png" alt="" />
-              <img class="hover" src="/images/logo-allegory-hover.png" alt="" />
-            </a>
-          </li>
-          <li>
-            <a href="#" target="_blank">
-              <img src="/images/logo-gaingels.png" alt="" />
-              <img class="hover" src="/images/logo-gaingels-hover.png" alt="" />
-            </a>
-          </li>
+          <template v-for="(logo, index) in page.logoSoup.logos">
+            <li :key="index" v-if="index > 1">
+              <a :href="logo.url" target="_blank">
+                <img v-if="logo.image" :src="logo.image.mediaItemUrl" alt="" />
+                <img
+                  class="hover"
+                  v-if="logo.imageActive"
+                  :src="logo.imageActive.mediaItemUrl"
+                  alt=""
+                />
+              </a>
+            </li>
+          </template>
         </ul>
       </div>
     </div>
     <div class="section-2">
       <div class="bg-image">
-        <img src="/images/section-2-grid-bg.svg" alt="" data-st-slide_down_enter />
+        <img
+          src="/images/section-2-grid-bg.svg"
+          alt=""
+          data-st-slide_down_enter
+        />
       </div>
-      <div class="inner">
+      <div class="inner" :id="page.infoSection1.sectionId">
         <div class="image">
-          <img src="/images/section-2-image.jpg" alt="" />
+          <FadeImage
+            v-if="page.infoSection1.image"
+            :srcset="page.infoSection1.image.srcSet"
+            :sizes="page.infoSection1.image.sizes"
+            :src="page.infoSection1.image.mediaItemUrl"
+            :alt="page.infoSection1.image.altText"
+            :width="page.infoSection1.image.mediaDetails.width"
+            :height="page.infoSection1.image.mediaDetails.height"
+          />
         </div>
         <div class="copy" data-st-slide_up_enter>
-          <h3>Small Actions.<br /><span>Massive Impact.</span></h3>
-          <p>
-            Collective actions yield outsized results. With the React Network,
-            you earn for connecting your smart thermostat, home battery, or
-            other smart devices. React makes small, infrequent adjustments to
-            stabilize the power grid, supercharging more renewable deployments
-            and reducing our reliance on dirty power plants.
-          </p>
+          <h3
+            v-if="page.infoSection1.title"
+            v-html="page.infoSection1.title"
+          ></h3>
+          <div
+            v-if="page.infoSection1.copy"
+            v-html="page.infoSection1.copy"
+          ></div>
         </div>
       </div>
     </div>
     <div class="section-3">
       <div class="bg-image">
         <img class="background" src="/images/section-3-bg.jpg" alt="" />
-        <img class="grid" src="/images/section-3-grid-bg.svg" alt="" data-st-slide_down_enter />
+        <img
+          class="grid"
+          src="/images/section-3-grid-bg.svg"
+          alt=""
+          data-st-slide_down_enter
+        />
       </div>
-      <div class="inner" data-st-slide_up_enter>
-        <h2>Future Focused</h2>
+      <div :id="page.infoCards.sectionId" class="inner" data-st-slide_up_enter>
+        <h2 v-if="page.infoCards.title" v-html="page.infoCards.title"></h2>
         <ul>
-          <li>
-            <img src="/images/icon-people.svg" alt="" />
-            <h3>Community Ownership</h3>
-            <p>Platforms should be owned by those who build them.</p>
-          </li>
-          <li>
-            <img src="/images/icon-snowflake.svg" alt="" />
-            <h3>Environmental Sustainability</h3>
-            <p>
-              A sustainable energy system is better for the planet and for
-              people.
-            </p>
-          </li>
-          <li>
-            <img src="/images/icon-trophy.svg" alt="" />
-            <h3>Eyes On The Prize</h3>
-            <p>Sustainable actions should be rewarded, not taxed.</p>
+          <li v-for="(card, index) in page.infoCards.cards" :key="index">
+            <img :src="card.icon.mediaItemUrl" alt="" />
+            <h3>{{ card.title }}</h3>
+            <p>{{ card.text }}</p>
           </li>
         </ul>
       </div>
-      <div class="inner2">
+      <div :id="page.infoSection2.sectionId" class="inner2">
         <div class="copy" data-st-slide_up_enter>
-          <h3>
-            <span>Fixing the Planet</span><br />
-            is Good Business.
-          </h3>
-          <p>
-            Earning is as easy as connecting your smart thermostat or home
-            battery system. Your devices immediately start minting React tokens
-            for participating. Passive income, for an active fight against
-            climate change and unstable energy grids
-          </p>
-          <p>
-            Why crypto? Crypto enables React to be owned and operated by its
-            community, meaning value is returned to you and not middlemen. Your
-            smart devices, your network.
-          </p>
-          <p>
-            <ul>
-              <li>
-                React’s digital currency is clean. Minting React tokens
-                accelerates our sustainable energy future.
-              </li>
-            </ul>
-          </p>
+          <h3
+            v-if="page.infoSection2.title"
+            v-html="page.infoSection2.title"
+          ></h3>
+          <div
+            v-if="page.infoSection2.copy"
+            v-html="page.infoSection2.copy"
+          ></div>
         </div>
         <div class="image" data-st-slide_up_enter>
-          <img src="/images/section-3-image.jpg" alt="" />
+          <FadeImage
+            v-if="page.infoSection2.image"
+            :srcset="page.infoSection2.image.srcSet"
+            :sizes="page.infoSection2.image.sizes"
+            :src="page.infoSection2.image.mediaItemUrl"
+            :alt="page.infoSection2.image.altText"
+            :width="page.infoSection2.image.mediaDetails.width"
+            :height="page.infoSection2.image.mediaDetails.height"
+          />
         </div>
       </div>
     </div>
     <div class="section-4">
-      <Section4Desktop />
+      <Section4 />
     </div>
   </div>
 </template>
 
 <script>
+import meta from "~/plugins/meta.js";
+import { gql } from "nuxt-graphql-request";
+import { basics, image, featured_image, link, seo_fields } from "~/gql/common";
 import scrollTriggerHub from "~/mixins/ScrollTriggerHub";
+
+const gql_content = `
+  ${basics}
+  ${seo_fields}
+  HomePageFields {
+    hero {
+      sectionId
+      title
+      copy
+      link1 {
+        ${link}
+      }
+      link2 {
+        ${link}
+      }
+    }
+    logoSoup {
+      sectionId
+      title
+      logos {
+        image {
+          ${image}
+        }
+        imageActive {
+          ${image}
+        }
+        url
+      }
+    }
+    infoSection1 {
+      sectionId
+      title
+      copy
+      image {
+        ${image}
+      }
+    }
+    infoCards {
+      sectionId
+      title
+      cards {
+        icon {
+          ${image}
+        }
+        title
+        text
+      }
+    }
+    infoSection2 {
+      sectionId
+      title
+      copy
+      image {
+        ${image}
+      }
+    }
+  }
+`;
 
 export default {
   mixins: [scrollTriggerHub],
+  async asyncData({ $graphql, route }) {
+    const query = gql`
+      query MyQuery {
+        page(id: "home", idType: URI, asPreview: true) {
+          ${gql_content}
+          isPreview
+          preview {
+            node {
+              ${gql_content}
+            }
+          }  
+        }
+      }
+    `;
+    let { page } = await $graphql.default.request(query);
+    page = page.HomePageFields;
+    console.log(page);
+
+    if (route.query && route.query.preview && page.preview) {
+      page = page.preview.node;
+    }
+
+    return { page };
+  },
+  methods: {
+    make_id(str) {
+      str = str.replace(/[^\w\s]|_/g, "");
+      return str.replace(/\s/g, "-");
+    },
+  },
   head() {
-    return {
-      title: "Home",
-    };
+    if (this.page && this.page.SeoFields) {
+      return {
+        title: this.page.SeoFields.seoTitle
+          ? this.page.SeoFields.seoTitle
+          : this.page.title,
+        meta: meta(this.page.SeoFields),
+      };
+    }
   },
 };
 </script>
@@ -219,12 +342,12 @@ export default {
 
 .section-1 {
   position: relative;
-  padding-top: 19.8vw;
+  padding-top: 13vw;
   padding-bottom: 12.7vw;
   @include gutter(padding-left);
   @include gutter(padding-right);
   overflow: hidden;
-  
+
   @include breakpoint(small) {
     padding-top: 0;
     padding-bottom: 100px;
@@ -265,9 +388,9 @@ export default {
       object-fit: cover;
       height: 100%;
 
-       @include breakpoint(small) {
-          z-index: 1;
-        }
+      @include breakpoint(small) {
+        z-index: 1;
+      }
     }
 
     img.grid {
@@ -297,7 +420,7 @@ export default {
         z-index: 1000;
       }
 
-      h1 {
+      :deep(h1) {
         color: $yellow;
         @include clamp("font-size", 45px, 3.2vw, 60px);
         line-height: 120%;
@@ -311,7 +434,7 @@ export default {
         }
       }
 
-      p {
+      :deep(p) {
         margin-bottom: 2em;
 
         @include breakpoint(small) {
@@ -353,6 +476,7 @@ export default {
         top: -5%;
         right: -5%;
         width: 20%;
+        z-index: 1;
 
         @include breakpoint(small) {
           top: -9%;
@@ -363,13 +487,14 @@ export default {
         svg {
           width: 100%;
         }
-      }  
+      }
 
       .parens {
         position: absolute;
         top: 27%;
         left: 0;
         width: 100%;
+        z-index: 1;
 
         @include breakpoint(small) {
           top: 7%;
@@ -434,7 +559,7 @@ export default {
 
           @include breakpoint(small) {
             width: 70%;
-            margin-bottom: 30px;
+            margin-bottom: 50px;
           }
         }
       }
@@ -447,6 +572,7 @@ export default {
 
           @include breakpoint(small) {
             width: 70%;
+            margin-bottom: 50px;
           }
 
           a {
@@ -548,7 +674,7 @@ export default {
       flex-shrink: 0;
       padding: 2.55vw;
 
-       @include breakpoint(small) {
+      @include breakpoint(small) {
         width: 100%;
         padding: 0;
       }
@@ -572,7 +698,7 @@ export default {
         @include gutter(padding-right);
       }
 
-      h3 {
+      :deep(h3) {
         font-weight: 400;
         @include clamp("font-size", 34px, 3.13vw, 60px);
         line-height: 120%;
@@ -661,7 +787,7 @@ export default {
       justify-content: space-between;
       list-style: none;
       padding: 0;
-     
+
       @include breakpoint(small) {
         flex-direction: column;
       }
@@ -703,7 +829,7 @@ export default {
             margin-bottom: 0.5em;
           }
         }
-        
+
         p {
           @include breakpoint(small) {
             font-size: 22px;
@@ -735,7 +861,7 @@ export default {
         order: 2;
       }
 
-      h3 {
+      :deep(h3) {
         font-weight: 400;
         @include clamp("font-size", 34px, 3.13vw, 60px);
         line-height: 120%;

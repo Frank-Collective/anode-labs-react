@@ -82,7 +82,7 @@ export default {
             trigger: el,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.5,
+            scrub: 0.1,
           },
         })
         .from(el, {
@@ -101,7 +101,7 @@ export default {
             trigger: el,
             start: "top bottom",
             end: "bottom top",
-            scrub: 0.5,
+            scrub: 0.1,
           },
         })
         .from(el, {

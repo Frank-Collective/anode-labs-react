@@ -11,8 +11,12 @@
       </div>
       <div class="nav-links">
         <ul>
-          <li><a href="#">Our Values</a></li>
-          <li><a href="#">How It Works</a></li>
+          <li>
+            <Link :link="{ title: 'Our Values', url: '#future-focused' }" />
+          </li>
+          <li>
+            <Link :link="{ title: 'How It Works', url: '#meet-network' }" />
+          </li>
           <li><a href="#">Join Us</a></li>
         </ul>
       </div>
@@ -84,6 +88,8 @@ nav {
         color: $white;
         text-transform: uppercase;
         font-family: "Test Söhne Breit";
+        cursor: pointer;
+
         &:hover {
           color: $yellow;
         }

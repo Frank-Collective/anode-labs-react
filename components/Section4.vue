@@ -1,7 +1,7 @@
 <template>
   <div class="inner">
     <div class="copy">
-      <h2>Meet The <br />React Network</h2>
+      <h2 id="meet-network">Meet The <br />React Network</h2>
       <ExpandingContent
         :data="{
           callback: display_image,

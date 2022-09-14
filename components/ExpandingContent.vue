@@ -16,7 +16,7 @@
         v-on:before-leave="beforeLeave"
         v-on:leave="leave"
       >
-        <div class="content" v-show="expanded" v-html="data.content"></div>
+        <div class="content" v-html="data.content"></div>
       </transition>
     </div>
   </div>
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       scrolltrigger_initiated: false,
-      expanded: true,
+      expanded: false,
     };
   },
   mounted() {
@@ -120,8 +120,12 @@ export default {
 .expanding-content {
   position: relative;
   border-top: 3px solid $slate;
+  opacity: 0;
+  transition: 0.25s opacity;
 
   &.expanded {
+    opacity: 1;
+
     .inner {
       .content {
         height: auto;
@@ -170,7 +174,7 @@ export default {
 
     :deep(.content) {
       position: relative;
-      height: 0px;
+      // height: 0px;
       overflow: hidden;
       transition: 0.5s;
 
