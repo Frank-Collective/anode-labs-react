@@ -1,9 +1,9 @@
 <template>
-  <nav>
+  <nav v-if="data">
     <div class="inner">
       <div class="logo">
         <a v-if="currentRoute == 'index'" v-scroll-to="'#top'">
-          <img src="/images/logo.svg" alt="" />
+          <img v-if="data.logo" :src="data.logo.mediaItemUrl" alt="" />
         </a>
         <nuxt-link v-if="currentRoute != 'index'" to="/">
           <img src="/images/logo.svg" alt="" />
@@ -11,13 +11,9 @@
       </div>
       <div class="nav-links">
         <ul>
-          <li>
-            <Link :link="{ title: 'Our Values', url: '#future-focused' }" />
+          <li v-for="(link, index) in data.links" :key="index">
+            <Link :link="link.link" />
           </li>
-          <li>
-            <Link :link="{ title: 'How It Works', url: '#meet-network' }" />
-          </li>
-          <li><a href="#">Join Us</a></li>
         </ul>
       </div>
     </div>
@@ -25,11 +21,36 @@
 </template>
 
 <script>
+import { gql } from "nuxt-graphql-request";
+import { image, link } from "~/gql/common";
+
 export default {
   data() {
-    return { currentRoute: null };
+    return { data: null, currentRoute: null };
   },
-
+  async fetch() {
+    const query = gql`
+      query MyQuery {
+        globalContent {
+          NavFields {
+            navFields {
+              logo {
+                ${image}
+              }
+              links {
+                link {
+                  ${link}
+                }
+              }
+            }
+          }
+        }
+      }
+    `;
+    const data = await this.$graphql.default.request(query);
+    this.data = data.globalContent.NavFields.navFields;
+    // console.log(this.data);
+  },
   mounted() {
     this.currentRoute = this.$route.name;
   },

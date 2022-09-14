@@ -220,7 +220,7 @@
       </div>
     </div>
     <div class="section-4">
-      <Section4 />
+      <Section4 :data="page.reactNetwork" />
     </div>
   </div>
 </template>
@@ -286,6 +286,20 @@ const gql_content = `
         ${image}
       }
     }
+    reactNetwork {
+      sectionId
+      title
+      contentBlock {
+        icon {
+          ${image}
+        }
+        title
+        copy
+        image {
+          ${image}
+        }
+      }
+    }
   }
 `;
 
@@ -307,7 +321,7 @@ export default {
     `;
     let { page } = await $graphql.default.request(query);
     page = page.HomePageFields;
-    console.log(page);
+    // console.log(page);
 
     if (route.query && route.query.preview && page.preview) {
       page = page.preview.node;

@@ -1,73 +1,53 @@
 <template>
-  <div class="inner">
+  <div class="inner" v-if="data">
     <div class="copy">
-      <h2 id="meet-network">Meet The <br />React Network</h2>
+      <h2 :id="data.sectionId" v-if="data.title" v-html="data.title"></h2>
       <ExpandingContent
+        v-for="(block, index) in data.contentBlock"
+        :key="index"
         :data="{
           callback: display_image,
-          index: 0,
-          image: { mediaItemUrl: '/images/icon-bulb.svg' },
-          title: 'The Network for<br>Energy Flexibility',
-          content:
-            '<p>Renewable energy is growing fast. That’s a good thing for our environment and health. However, renewable energy can also be unstable.</p><p>Energy flexibility smooths out the ebbs and flows of renewable energy. React is creating a network of distributed devices to provide this critical flexibility.</p><p>The React Network coordinates thousands of connected energy devices when the grid is under stress and having a difficult time providing reliable service. These small adjustments add up to a massive source of value for energy grids– value that is returned to you.</p>',
-        }"
-      />
-      <ExpandingContent
-        :data="{
-          callback: display_image,
-          index: 1,
-          image: { mediaItemUrl: '/images/icon-0101.svg' },
-          title: 'Earn React Tokens<br>For Contributing',
-          content:
-            '<p>Once connected, your energy devices mint React Tokens automatically. React handles the rest.</p><p>On the other side of the network, energy market participants consume React tokens to procure energy flexibility, reducing the total token supply to maintain a healthy market.</p>',
-        }"
-      />
-      <ExpandingContent
-        :data="{
-          callback: display_image,
-          index: 2,
-          image: { mediaItemUrl: '/images/icon-people2.svg' },
-          title: 'Collective<br>Ownership',
-          content:
-            '<p>The React Network belongs to its builders. As a community-owned energy platform, individual contributions are rewarded with ownership in the network itself. React tokens represent your personal stake in the grid’s sustainability gains.</p><p>As our community grows, the React Network grows more valuable in its ability to effect meaningful change. Because there’s Power in Numbers</p>',
+          index: index,
+          image: block.icon,
+          title: block.title,
+          content: block.copy,
         }"
       />
     </div>
     <div class="images">
-      <div
-        class="dot"
-        v-bind:class="{ expanded: current_image_index == 0 }"
-      ></div>
-      <div class="image" v-bind:class="{ expanded: current_image_index == 0 }">
-        <img src="/images/section4-image-0.jpg" alt="" />
-      </div>
-      <div
-        class="dot"
-        v-bind:class="{ expanded: current_image_index == 1 }"
-      ></div>
-      <div class="image" v-bind:class="{ expanded: current_image_index == 1 }">
-        <img src="/images/section4-image-1.jpg" alt="" />
-      </div>
-      <div
-        class="dot"
-        v-bind:class="{ expanded: current_image_index == 2 }"
-      ></div>
-      <div
-        class="image last"
-        v-bind:class="{ expanded: current_image_index == 2 }"
-      >
-        <img src="/images/section4-image-2.jpg" alt="" />
-      </div>
+      <template v-for="(block, index) in data.contentBlock">
+        <div
+          :key="index"
+          class="dot"
+          v-bind:class="{ expanded: current_image_index == index }"
+        ></div>
+        <div
+          :key="`${index}1`"
+          class="image"
+          v-bind:class="{
+            expanded: current_image_index == index,
+            last: index == data.contentBlock.length - 1,
+          }"
+        >
+          <img :src="block.image.mediaItemUrl" alt="" />
+        </div>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    data: Object,
+  },
   data() {
     return {
       current_image_index: -1,
     };
+  },
+  mounted() {
+    // console.log(this.data);
   },
   methods: {
     display_image: function (index) {

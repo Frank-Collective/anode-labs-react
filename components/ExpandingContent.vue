@@ -64,7 +64,7 @@ export default {
             // }, 500);
           },
           onEnterBack: () => {
-            console.log("onEnterBack");
+            // console.log("onEnterBack");
             this.expanded = true;
             this.data.callback(this.data.index);
           },
