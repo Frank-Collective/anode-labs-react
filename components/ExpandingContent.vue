@@ -131,13 +131,28 @@ export default {
 
   .inner {
     padding: 3vw 0;
+
+    @include breakpoint(small) {
+      padding: 20px 0 40px;
+    }
+
     .title {
       display: flex;
       align-items: center;
 
+      @include breakpoint(small) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
       img {
         transition: 0.15s opacity;
         margin-right: 3vw;
+
+        @include breakpoint(small) {
+          width: 55px;
+          margin-right: 0;
+        }
       }
 
       h3 {
@@ -146,6 +161,10 @@ export default {
         line-height: 120%;
         letter-spacing: -0.01em;
         padding: 1.25em 0;
+
+        @include breakpoint(small) {
+          padding: 0.5em 0 1em;
+        }
       }
     }
 

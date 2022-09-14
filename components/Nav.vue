@@ -54,7 +54,7 @@ nav {
       a {
         display: block;
         width: 216px;
-        @include clamp("width", 103px, 11.25vw, 216px);
+        @include clamp("width", 111px, 14vw, 250px);
         cursor: pointer;
 
         img {
@@ -64,7 +64,12 @@ nav {
         }
       }
     }
+
     .nav-links {
+      @include breakpoint(small) {
+        display: none;
+      }
+
       ul {
         display: flex;
         li {

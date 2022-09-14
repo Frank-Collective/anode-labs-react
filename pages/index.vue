@@ -2,15 +2,17 @@
   <div>
     <div class="section-1">
       <div class="bg-image">
-        <img class="background" src="/images/section-1-bg.jpg" alt=""  />
-        <img src="/images/section-1-grid-bg.svg" alt="" data-st-slide_down_enter />
+        <img class="background desktop" src="/images/section-1-bg.jpg" alt=""  />
+        <img class="background mobile" src="/images/section-1-bg-mobile.png" alt=""  />
+        <img class="grid desktop" src="/images/section-1-grid-bg.svg" alt="" data-st-slide_down_enter />
+        <img class="grid mobile" src="/images/section-1-grid-bg-mobile.svg" alt="" />
       </div>
       <div class="inner">
         <div class="copy" data-st-slide_up_enter>
           <h1>POWERED<br />by PEOPLE</h1>
           <p>Connect. Conserve. Earn. Sustain.</p>
           <div class="ctas">
-            <a href="#" class="button">Add me to the waitlist</a>
+            <a href="#" class="button">Join the waitlist</a>
             <a href="#" class="link">Join the discord</a>
           </div>
         </div>
@@ -134,7 +136,7 @@
     <div class="section-3">
       <div class="bg-image">
         <img class="background" src="/images/section-3-bg.jpg" alt="" />
-        <img src="/images/section-3-grid-bg.svg" alt="" data-st-slide_down_enter />
+        <img class="grid" src="/images/section-3-grid-bg.svg" alt="" data-st-slide_down_enter />
       </div>
       <div class="inner" data-st-slide_up_enter>
         <h2>Future Focused</h2>
@@ -222,6 +224,11 @@ export default {
   @include gutter(padding-left);
   @include gutter(padding-right);
   overflow: hidden;
+  
+  @include breakpoint(small) {
+    padding-top: 0;
+    padding-bottom: 100px;
+  }
 
   .bg-image {
     position: absolute;
@@ -238,11 +245,35 @@ export default {
       display: block;
       width: 100%;
       height: auto;
+
+      &.desktop {
+        @include breakpoint(small) {
+          display: none;
+        }
+      }
+
+      &.mobile {
+        display: none;
+
+        @include breakpoint(small) {
+          display: block;
+        }
+      }
     }
 
     img.background {
       object-fit: cover;
       height: 100%;
+
+       @include breakpoint(small) {
+          z-index: 1;
+        }
+    }
+
+    img.grid {
+      @include breakpoint(small) {
+        top: -2.5%;
+      }
     }
   }
 
@@ -254,7 +285,18 @@ export default {
     padding-left: 3vw;
     padding-right: 4.5vw;
 
+    @include breakpoint(small) {
+      flex-direction: column;
+      padding: 90px 0 0 0;
+    }
+
     .copy {
+      @include breakpoint(small) {
+        order: 2;
+        margin-top: -2.4em;
+        z-index: 1000;
+      }
+
       h1 {
         color: $yellow;
         @include clamp("font-size", 45px, 3.2vw, 60px);
@@ -262,10 +304,19 @@ export default {
         letter-spacing: 0.04em;
         text-transform: uppercase;
         margin-bottom: 1em;
+
+        @include breakpoint(small) {
+          font-weight: normal;
+          margin-bottom: 0.2em;
+        }
       }
 
       p {
         margin-bottom: 2em;
+
+        @include breakpoint(small) {
+          margin-bottom: 1.5em;
+        }
       }
 
       .ctas {
@@ -278,6 +329,11 @@ export default {
       width: 55%;
       flex-shrink: 0;
       position: relative;
+
+      @include breakpoint(small) {
+        width: 100%;
+      }
+
       #hero3d {
         width: 80%;
         min-height: 500px;
@@ -285,25 +341,46 @@ export default {
         margin-left: 10%;
         position: relative;
         z-index: 100;
+
+        @include breakpoint(small) {
+          min-height: 270px;
+          margin-left: 7%;
+        }
       }
+
       .ornament {
         position: absolute;
         top: -5%;
         right: -5%;
         width: 20%;
+
+        @include breakpoint(small) {
+          top: -9%;
+          right: -2%;
+          width: 12%;
+        }
+
         svg {
           width: 100%;
         }
-      }      
+      }  
+
       .parens {
         position: absolute;
         top: 27%;
         left: 0;
         width: 100%;
+
+        @include breakpoint(small) {
+          top: 7%;
+          width: 94%;
+        }
+
         svg {
           width: 100%;
         }
       }
+
       img {
         display: block;
         width: 100%;
@@ -321,6 +398,10 @@ export default {
     padding-right: 4.5vw;
     padding-top: 31vw;
 
+    @include breakpoint(small) {
+      z-index: 1;
+    }
+
     h2 {
       font-weight: 400;
       @include clamp("font-size", 34px, 4.17vw, 80px);
@@ -329,6 +410,10 @@ export default {
       letter-spacing: 0.04em;
       color: $dark_green;
       margin-bottom: 2.5em;
+
+      @include breakpoint(small) {
+        margin-bottom: 2em;
+      }
     }
 
     ul {
@@ -339,9 +424,18 @@ export default {
       align-items: center;
       width: 100%;
 
+      @include breakpoint(small) {
+        flex-direction: column;
+      }
+
       &.large {
         li {
           width: 21.4vw;
+
+          @include breakpoint(small) {
+            width: 70%;
+            margin-bottom: 30px;
+          }
         }
       }
 
@@ -350,6 +444,10 @@ export default {
 
         li {
           width: 13vw;
+
+          @include breakpoint(small) {
+            width: 70%;
+          }
 
           a {
             img {
@@ -362,6 +460,10 @@ export default {
       li {
         flex-shrink: 0;
         margin-bottom: 5vw;
+
+        @include breakpoint(small) {
+          margin-bottom: 0px;
+        }
 
         a {
           position: relative;
@@ -413,6 +515,10 @@ export default {
     width: 100%;
     height: 100%;
 
+    @include breakpoint(small) {
+      display: none;
+    }
+
     img {
       display: block;
       width: 100%;
@@ -429,10 +535,23 @@ export default {
     @include gutter(padding-right);
     margin-top: -10vw;
 
+    @include breakpoint(small) {
+      position: relative;
+      flex-direction: column;
+      padding: 0;
+      margin-top: 0;
+      padding-bottom: 100px;
+    }
+
     .image {
       width: 48%;
       flex-shrink: 0;
       padding: 2.55vw;
+
+       @include breakpoint(small) {
+        width: 100%;
+        padding: 0;
+      }
 
       img {
         display: block;
@@ -445,6 +564,13 @@ export default {
       width: 48%;
       flex-shrink: 0;
       padding: 0 2.2vw;
+
+      @include breakpoint(small) {
+        padding-top: 40px;
+        width: 100%;
+        @include gutter(padding-left);
+        @include gutter(padding-right);
+      }
 
       h3 {
         font-weight: 400;
@@ -470,6 +596,11 @@ export default {
   @include gutter(padding-right);
   overflow: hidden;
 
+  @include breakpoint(small) {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+
   .bg-image {
     position: absolute;
     top: 0;
@@ -491,6 +622,12 @@ export default {
       object-fit: cover;
       height: 100%;
     }
+
+    img.grid {
+      @include breakpoint(small) {
+        display: none;
+      }
+    }
   }
 
   .inner {
@@ -501,6 +638,10 @@ export default {
     padding-left: 5vw;
     padding-right: 6.5vw;
 
+    @include breakpoint(small) {
+      padding: 0;
+    }
+
     h2 {
       font-weight: 400;
       @include clamp("font-size", 34px, 4.17vw, 80px);
@@ -509,6 +650,10 @@ export default {
       letter-spacing: 0.04em;
       color: $dark_green;
       margin-bottom: 2em;
+
+      @include breakpoint(small) {
+        margin-bottom: 1.5em;
+      }
     }
 
     ul {
@@ -516,6 +661,10 @@ export default {
       justify-content: space-between;
       list-style: none;
       padding: 0;
+     
+      @include breakpoint(small) {
+        flex-direction: column;
+      }
 
       li {
         width: calc(33.3333% - 1.5vw);
@@ -524,11 +673,21 @@ export default {
         box-shadow: 0px 0px 24px rgba(0, 0, 0, 0.25);
         padding: 4vw 2vw;
 
+        @include breakpoint(small) {
+          width: 100%;
+          margin-bottom: 25px;
+          padding: 60px 35px;
+        }
+
         img {
           display: block;
           @include clamp("width", 56px, 3.65vw, 70px);
           height: auto;
           margin-bottom: 2vw;
+
+          @include breakpoint(small) {
+            margin-bottom: 20px;
+          }
         }
 
         h3 {
@@ -538,6 +697,18 @@ export default {
           padding-bottom: 0.5em;
           margin-bottom: 0.75em;
           border-bottom: 3px solid $yellow;
+
+          @include breakpoint(small) {
+            padding-bottom: 1em;
+            margin-bottom: 0.5em;
+          }
+        }
+        
+        p {
+          @include breakpoint(small) {
+            font-size: 22px;
+            line-height: 110%;
+          }
         }
       }
     }
@@ -549,10 +720,20 @@ export default {
     justify-content: space-between;
     padding-top: 26vw;
 
+    @include breakpoint(small) {
+      flex-direction: column;
+      padding-top: 50px;
+    }
+
     .copy {
       width: 40%;
       flex-shrink: 0;
       padding: 0 0;
+
+      @include breakpoint(small) {
+        width: 100%;
+        order: 2;
+      }
 
       h3 {
         font-weight: 400;
@@ -569,9 +750,18 @@ export default {
     }
 
     .image {
+      position: relative;
       width: 48%;
       flex-shrink: 0;
       padding: 0 0 0 1.3vw;
+
+      @include breakpoint(small) {
+        width: 100%;
+        @include neg-gutter(left);
+        width: calc(100% + 60px);
+        padding: 0;
+        margin-bottom: 90px;
+      }
 
       img {
         display: block;

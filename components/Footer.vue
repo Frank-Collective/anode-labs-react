@@ -111,6 +111,10 @@ footer {
   padding-top: 5vw;
   padding-bottom: 2vw;
 
+  @include breakpoint(small) {
+    padding: 60px 0px;
+  }
+
   .inner {
     @include gutter(padding-left);
     @include gutter(padding-right);
@@ -127,6 +131,10 @@ footer {
       align-items: flex-start;
       margin-bottom: 10.2vw;
 
+      @include breakpoint(small) {
+        width: 70%;
+      }
+
       h3 {
         font-weight: 100;
         @include clamp("font-size", 34px, 4.17vw, 80px);
@@ -140,15 +148,42 @@ footer {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      .logo {
+
+      @include breakpoint(small) {
+        flex-direction: column;
+        margin-top: 100px;
       }
+
+      .logo {
+        @include breakpoint(small) {
+          order: 2;
+        }
+
+        img {
+          @include breakpoint(small) {
+            width: 30px;
+          }
+        }
+      }
+
       .nav-links {
         ul {
           display: flex;
+
+          @include breakpoint(small) {
+            flex-direction: column;
+          }
+
           li {
             margin-left: 2em;
+
             &:first-of-type {
               margin-left: 0;
+            }
+
+            @include breakpoint(small) {
+              margin-left: 0;
+              margin-bottom: 30px;
             }
           }
         }
@@ -165,17 +200,26 @@ footer {
       .dummy-element {
         width: 150px;
       }
+
       .socials {
         position: fixed;
         bottom: 3vw;
         right: 6.7vw;
         z-index: 100;
+
         ul {
           display: flex;
           li {
             margin-left: 1em;
+
             &:first-of-type {
               margin-left: 0;
+            }
+
+            svg {
+              @include breakpoint(small) {
+                width: 30px;
+              }
             }
           }
         }

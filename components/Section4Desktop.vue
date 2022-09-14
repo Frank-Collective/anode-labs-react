@@ -98,7 +98,7 @@ export default {
 
     @include breakpoint(small) {
       width: 100%;
-      padding: 0;
+      padding: 80px 0 50px;
     }
 
     h2 {
@@ -107,6 +107,11 @@ export default {
       line-height: 120%;
       letter-spacing: 0.04em;
       margin-bottom: 0.6em;
+
+      @include breakpoint(small) {
+        text-align: center;
+        margin-bottom: 2.5em;
+      }
     }
   }
 

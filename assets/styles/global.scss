@@ -22,6 +22,10 @@ body {
 model-viewer {
   width: 800px;
   height: 600px;
+
+  @include breakpoint(small) {
+    height: unset;
+  }
 }
 
 .poster .progress-bar {
