@@ -70,7 +70,7 @@ export default {
     `;
     const data = await this.$graphql.default.request(query);
     this.data = data.globalContent.FooterFields.footerFields;
-    console.log(this.data);
+    //console.log(this.data);
   },
   mounted() {},
 };

@@ -44,7 +44,7 @@
             auto-rotate
             disable-zoom
             interaction-prompt="none"
-            src="/Scene.gltf"
+            src="/Earth2.glb"
             alt="Earth at night"
           >
             <div class="poster" slot="poster"></div>
