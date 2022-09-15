@@ -535,10 +535,11 @@ export default {
     align-items: center;
     padding-left: 3vw;
     padding-right: 4.5vw;
-    padding-top: 31vw;
+    padding-top: 11vw;
 
     @include breakpoint(small) {
       z-index: 1;
+      padding-top: 150px;
     }
 
     h2 {

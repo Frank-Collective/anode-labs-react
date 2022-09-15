@@ -123,6 +123,10 @@ export default {
   opacity: 0;
   transition: 0.25s opacity;
 
+  @include breakpoint(small) {
+    opacity: 1;
+  }
+
   &.expanded {
     opacity: 1;
 
