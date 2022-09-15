@@ -78,7 +78,7 @@ export default {
 
     @include breakpoint(small) {
       width: 100%;
-      padding: 80px 0 50px;
+      padding: 70px 0 50px;
     }
 
     h2 {

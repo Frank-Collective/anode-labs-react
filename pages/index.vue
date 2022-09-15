@@ -364,7 +364,7 @@ export default {
 
   @include breakpoint(small) {
     padding-top: 0;
-    padding-bottom: 100px;
+    padding-bottom: 30px;
   }
 
   .bg-image {
@@ -685,12 +685,15 @@ export default {
     }
 
     .image {
+      position: relative;
       width: 48%;
       flex-shrink: 0;
       padding: 2.55vw;
 
       @include breakpoint(small) {
         width: 100%;
+        height: 79vw;
+        overflow: hidden;
         padding: 0;
       }
 
@@ -698,6 +701,12 @@ export default {
         display: block;
         width: 100%;
         height: auto;
+
+        @include breakpoint(small) {
+          position: absolute;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
 
@@ -884,6 +893,10 @@ export default {
         text-transform: capitalize;
         margin-bottom: 1em;
 
+        @include breakpoint(small) {
+          width: 80%;
+        }
+
         span {
           color: $yellow;
         }
@@ -900,14 +913,22 @@ export default {
         width: 100%;
         @include neg-gutter(left);
         width: calc(100% + 60px);
+        height: 79vw;
         padding: 0;
-        margin-bottom: 90px;
+        margin-bottom: 70px;
+        overflow: hidden;
       }
 
       img {
         display: block;
         width: 100%;
         height: auto;
+
+        @include breakpoint(small) {
+          position: absolute;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
