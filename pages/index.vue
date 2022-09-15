@@ -44,6 +44,7 @@
             auto-rotate
             disable-zoom
             interaction-prompt="none"
+            auto-rotate-delay="0"
             src="/Earth2.glb"
             alt="Earth at night"
           >
@@ -321,7 +322,6 @@ export default {
     `;
     let { page } = await $graphql.default.request(query);
     page = page.HomePageFields;
-    // console.log(page);
 
     if (route.query && route.query.preview && page.preview) {
       page = page.preview.node;
