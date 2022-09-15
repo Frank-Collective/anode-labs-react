@@ -7,6 +7,14 @@
     >{{ link.title }}</a
   >
 
+  <!-- Email Link -->
+  <a
+    v-else-if="link.url.substr(0, 6) === 'mailto'"
+    :class="classes"
+    :href="link.url"
+    >{{ link.title }}</a
+  >
+
   <!-- Internal link -->
   <nuxt-link
     v-else-if="link.target != '_blank'"

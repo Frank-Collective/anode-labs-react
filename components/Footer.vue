@@ -9,13 +9,7 @@
         <div class="logo">
           <img v-if="data.logo" :src="data.logo.mediaItemUrl" alt="" />
         </div>
-        <div class="nav-links">
-          <ul>
-            <li v-for="(link, index) in data.links" :key="index">
-              <Link :link="link.link" />
-            </li>
-          </ul>
-        </div>
+
         <div class="dummy-element"></div>
         <div class="socials">
           <ul>
@@ -51,11 +45,6 @@ export default {
               }
               logo {
                 ${image}
-              }
-              links {
-                link {
-                  ${link}
-                }
               }
               socialMediaLinks {
                 icon {
@@ -138,37 +127,6 @@ footer {
         }
       }
 
-      .nav-links {
-        ul {
-          display: flex;
-
-          @include breakpoint(small) {
-            flex-direction: column;
-          }
-
-          li {
-            margin-left: 2em;
-
-            &:first-of-type {
-              margin-left: 0;
-            }
-
-            @include breakpoint(small) {
-              margin-left: 0;
-              margin-bottom: 30px;
-            }
-          }
-        }
-        a {
-          text-decoration: none;
-          color: $white;
-          text-transform: uppercase;
-          font-family: "Test Söhne Breit";
-          &:hover {
-            color: $yellow;
-          }
-        }
-      }
       .dummy-element {
         width: 150px;
       }
@@ -181,6 +139,8 @@ footer {
 
         ul {
           display: flex;
+          align-items: center;
+
           li {
             margin-left: 1em;
 
@@ -188,9 +148,17 @@ footer {
               margin-left: 0;
             }
 
-            svg {
+            a {
+              display: block;
+            }
+
+            svg,
+            img {
+              height: 28px;
+              width: auto;
+
               @include breakpoint(small) {
-                width: 30px;
+                height: 20px;
               }
             }
           }
