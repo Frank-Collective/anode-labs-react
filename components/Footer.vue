@@ -146,6 +146,7 @@ footer {
 
             &:first-of-type {
               margin-left: 0;
+              margin-top: -6px;
             }
 
             a {
@@ -154,7 +155,7 @@ footer {
 
             svg,
             img {
-              height: 28px;
+              height: 22px;
               width: auto;
 
               @include breakpoint(small) {
