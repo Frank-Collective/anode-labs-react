@@ -20,20 +20,26 @@
           alt=""
         />
       </div>
-      <div class="inner" :id="page.hero.sectionId">
+      <div class="inner" :id="page.HomePageFields.hero.sectionId">
         <div class="copy" data-st-slide_up_enter>
-          <h1 v-if="page.hero.title" v-html="page.hero.title"></h1>
-          <div v-if="page.hero.copy" v-html="page.hero.copy"></div>
+          <h1
+            v-if="page.HomePageFields.hero.title"
+            v-html="page.HomePageFields.hero.title"
+          ></h1>
+          <div
+            v-if="page.HomePageFields.hero.copy"
+            v-html="page.HomePageFields.hero.copy"
+          ></div>
           <div class="ctas">
             <Link
-              v-if="page.hero.link1"
+              v-if="page.HomePageFields.hero.link1"
               :classes="'button'"
-              :link="page.hero.link1"
+              :link="page.HomePageFields.hero.link1"
             />
             <Link
-              v-if="page.hero.link2"
+              v-if="page.HomePageFields.hero.link2"
               :classes="'link'"
-              :link="page.hero.link2"
+              :link="page.HomePageFields.hero.link2"
             />
           </div>
         </div>
@@ -109,11 +115,21 @@
           <!-- <img src="/images/section-1-image.png" alt="" /> -->
         </div>
       </div>
-      <div :id="page.logoSoup.sectionId" class="inner2" data-st-slide_up_enter>
-        <h2 v-if="page.logoSoup.title" v-html="page.logoSoup.title"></h2>
+      <div
+        :id="page.HomePageFields.logoSoup.sectionId"
+        class="inner2"
+        data-st-slide_up_enter
+      >
+        <h2
+          v-if="page.HomePageFields.logoSoup.title"
+          v-html="page.HomePageFields.logoSoup.title"
+        ></h2>
         <ul class="large">
           <li
-            v-for="(logo, index) in page.logoSoup.logos.slice(0, 2)"
+            v-for="(logo, index) in page.HomePageFields.logoSoup.logos.slice(
+              0,
+              2
+            )"
             :key="index"
           >
             <a :href="logo.url" target="_blank">
@@ -128,7 +144,7 @@
           </li>
         </ul>
         <ul class="small">
-          <template v-for="(logo, index) in page.logoSoup.logos">
+          <template v-for="(logo, index) in page.HomePageFields.logoSoup.logos">
             <li :key="index" v-if="index > 1">
               <a :href="logo.url" target="_blank">
                 <img v-if="logo.image" :src="logo.image.mediaItemUrl" alt="" />
@@ -152,26 +168,26 @@
           data-st-slide_down_enter
         />
       </div>
-      <div class="inner" :id="page.infoSection1.sectionId">
+      <div class="inner" :id="page.HomePageFields.infoSection1.sectionId">
         <div class="image">
           <FadeImage
-            v-if="page.infoSection1.image"
-            :srcset="page.infoSection1.image.srcSet"
-            :sizes="page.infoSection1.image.sizes"
-            :src="page.infoSection1.image.mediaItemUrl"
-            :alt="page.infoSection1.image.altText"
-            :width="page.infoSection1.image.mediaDetails.width"
-            :height="page.infoSection1.image.mediaDetails.height"
+            v-if="page.HomePageFields.infoSection1.image"
+            :srcset="page.HomePageFields.infoSection1.image.srcSet"
+            :sizes="page.HomePageFields.infoSection1.image.sizes"
+            :src="page.HomePageFields.infoSection1.image.mediaItemUrl"
+            :alt="page.HomePageFields.infoSection1.image.altText"
+            :width="page.HomePageFields.infoSection1.image.mediaDetails.width"
+            :height="page.HomePageFields.infoSection1.image.mediaDetails.height"
           />
         </div>
         <div class="copy" data-st-slide_up_enter>
           <h3
-            v-if="page.infoSection1.title"
-            v-html="page.infoSection1.title"
+            v-if="page.HomePageFields.infoSection1.title"
+            v-html="page.HomePageFields.infoSection1.title"
           ></h3>
           <div
-            v-if="page.infoSection1.copy"
-            v-html="page.infoSection1.copy"
+            v-if="page.HomePageFields.infoSection1.copy"
+            v-html="page.HomePageFields.infoSection1.copy"
           ></div>
         </div>
       </div>
@@ -186,42 +202,52 @@
           data-st-slide_down_enter
         />
       </div>
-      <div :id="page.infoCards.sectionId" class="inner" data-st-slide_up_enter>
-        <h2 v-if="page.infoCards.title" v-html="page.infoCards.title"></h2>
+      <div
+        :id="page.HomePageFields.infoCards.sectionId"
+        class="inner"
+        data-st-slide_up_enter
+      >
+        <h2
+          v-if="page.HomePageFields.infoCards.title"
+          v-html="page.HomePageFields.infoCards.title"
+        ></h2>
         <ul>
-          <li v-for="(card, index) in page.infoCards.cards" :key="index">
+          <li
+            v-for="(card, index) in page.HomePageFields.infoCards.cards"
+            :key="index"
+          >
             <img :src="card.icon.mediaItemUrl" alt="" />
             <h3>{{ card.title }}</h3>
             <p>{{ card.text }}</p>
           </li>
         </ul>
       </div>
-      <div :id="page.infoSection2.sectionId" class="inner2">
+      <div :id="page.HomePageFields.infoSection2.sectionId" class="inner2">
         <div class="copy" data-st-slide_up_enter>
           <h3
-            v-if="page.infoSection2.title"
-            v-html="page.infoSection2.title"
+            v-if="page.HomePageFields.infoSection2.title"
+            v-html="page.HomePageFields.infoSection2.title"
           ></h3>
           <div
-            v-if="page.infoSection2.copy"
-            v-html="page.infoSection2.copy"
+            v-if="page.HomePageFields.infoSection2.copy"
+            v-html="page.HomePageFields.infoSection2.copy"
           ></div>
         </div>
         <div class="image" data-st-slide_up_enter>
           <FadeImage
-            v-if="page.infoSection2.image"
-            :srcset="page.infoSection2.image.srcSet"
-            :sizes="page.infoSection2.image.sizes"
-            :src="page.infoSection2.image.mediaItemUrl"
-            :alt="page.infoSection2.image.altText"
-            :width="page.infoSection2.image.mediaDetails.width"
-            :height="page.infoSection2.image.mediaDetails.height"
+            v-if="page.HomePageFields.infoSection2.image"
+            :srcset="page.HomePageFields.infoSection2.image.srcSet"
+            :sizes="page.HomePageFields.infoSection2.image.sizes"
+            :src="page.HomePageFields.infoSection2.image.mediaItemUrl"
+            :alt="page.HomePageFields.infoSection2.image.altText"
+            :width="page.HomePageFields.infoSection2.image.mediaDetails.width"
+            :height="page.HomePageFields.infoSection2.image.mediaDetails.height"
           />
         </div>
       </div>
     </div>
     <div class="section-4">
-      <Section4 :data="page.reactNetwork" />
+      <Section4 :data="page.HomePageFields.reactNetwork" />
     </div>
   </div>
 </template>
@@ -321,7 +347,6 @@ export default {
       }
     `;
     let { page } = await $graphql.default.request(query);
-    page = page.HomePageFields;
 
     if (route.query && route.query.preview && page.preview) {
       page = page.preview.node;
@@ -337,8 +362,6 @@ export default {
   },
   head() {
     if (this.page && this.page.SeoFields) {
-      console.log(this.page.SeoFields);
-
       return {
         title: this.page.SeoFields.seoTitle
           ? this.page.SeoFields.seoTitle
