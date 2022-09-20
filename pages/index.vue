@@ -337,6 +337,8 @@ export default {
   },
   head() {
     if (this.page && this.page.SeoFields) {
+      console.log(this.page.SeoFields);
+
       return {
         title: this.page.SeoFields.seoTitle
           ? this.page.SeoFields.seoTitle
