@@ -449,9 +449,12 @@ export default {
       }
 
       :deep(p) {
+        width: 80%;
+        min-width: 380px;
         margin-bottom: 2em;
 
         @include breakpoint(small) {
+          width: 70%;
           margin-bottom: 1.5em;
         }
       }
@@ -867,6 +870,7 @@ export default {
   .inner2 {
     position: relative;
     display: flex;
+    align-items: center;
     justify-content: space-between;
     padding-top: 26vw;
 
