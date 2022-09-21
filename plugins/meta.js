@@ -1,16 +1,16 @@
 const meta = function (data, featured_image, post_content, title) {
   const output = [];
   output.push(
-    { hid: "author", name: "author", content: process.env.SITE_NAME },
+    { hid: "author", name: "author", content: "React Network" },
     {
       hid: "apple-mobile-web-app-title",
       name: "apple-mobile-web-app-title",
-      content: process.env.SITE_NAME,
+      content: "React Network",
     },
     {
       hid: "og:site_name",
       name: "og:site_name",
-      content: process.env.SITE_NAME,
+      content: "React Network",
     },
     { hid: "theme-color", name: "theme-color", content: "#ffffff" },
     {
@@ -92,7 +92,7 @@ const meta = function (data, featured_image, post_content, title) {
       }
     );
   }
-  console.log("META MAN");
+  console.log("META MAN", data, featured_image, post_content, title);
   console.log(output);
   return output;
 };
