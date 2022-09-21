@@ -92,8 +92,6 @@ const meta = function (data, featured_image, post_content, title) {
       }
     );
   }
-  console.log("META MAN", data, featured_image, post_content, title);
-  console.log(output);
   return output;
 };
 
